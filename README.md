@@ -1,5 +1,6 @@
 # 📊 Porfolio Data Analyst
 ## 👋 Présentation
+**Data Analyst** avec background développeur, spécialisé en SQL, Python et data visualisation (Power BI, Tableau), capable de transformer des données complexes en insights actionnables
 ## 🛠️ Compétences techniques
 - **Langages** : SQL, Python
 - **Data Visualisation** : Power BI, Tableau
