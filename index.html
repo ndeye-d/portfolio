@@ -4,7 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Data Analyst</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Couleurs de base */
+        :root {
+            --blue-light: #78C2E3; /* Bleu ciel */
+            --blue-dark: #1D3B56;  /* Bleu foncé */
+            --white: #FFFFFF;      /* Blanc */
+            --orange: #F07C00;     /* Orange accent */
+        }
+        
+        /* Style de la page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--blue-dark);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--blue-light);
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            color: var(--white);
+        }
+        
+        section {
+            padding: 40px;
+            margin: 20px;
+        }
+        
+        button {
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        
+        /* Style des titres */
+        h2, h3 {
+            color: var(--blue-dark);
+        }
+        
+        /* Projets */
+        .project {
+            background-color: var(--blue-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project h3 {
+            color: var(--white);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,14 +70,16 @@
     
     <section id="about">
         <h2>À propos de moi</h2>
-        <p>Je suis un Data Analyst passionné par l'exploration des données et la création de solutions à partir des données. Voici quelques-uns de mes projets.</p>
+        <p>Je suis Data Analyst avec un background de développeur JAVA/J2EE</p>
     </section>
     
     <section id="projects">
-        <h2>Mes Projets</h2>
+        <h2>Projets</h2>
         <div class="project">
             <h3>Analyse des tendances du trafic aérien</h3>
-            <p>Description de votre projet ici. Graphiques et analyses des données de trafic aérien.</p>
+            <p>
+                Description de votre projet ici. Graphiques et analyses des données de trafic aérien.
+            </p>
         </div>
         <div class="project">
             <h3>Prévisions des vols et des horaires</h3>
