@@ -1,95 +1,514 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Data Analyst</title>
-    <style>
-        /* Couleurs de base */
-        :root {
-            --blue-light: #78C2E3; /* Bleu ciel */
-            --blue-dark: #1D3B56;  /* Bleu foncé */
-            --white: #FFFFFF;      /* Blanc */
-            --orange: #F07C00;     /* Orange accent */
-        }
-        
-        /* Style de la page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: var(--white);
-            color: var(--blue-dark);
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            background-color: var(--blue-light);
-            padding: 20px;
-            text-align: center;
-            font-size: 2em;
-            color: var(--white);
-        }
-        
-        section {
-            padding: 40px;
-            margin: 20px;
-        }
-        
-        button {
-            background-color: var(--orange);
-            color: var(--white);
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-            border-radius: 5px;
-        }
-        
-        /* Style des titres */
-        h2, h3 {
-            color: var(--blue-dark);
-        }
-        
-        /* Projets */
-        .project {
-            background-color: var(--blue-light);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .project h3 {
-            color: var(--white);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndeye Dieng | Portfolio Data Analyst SQL Python Power BI</title>
+
+<meta 
+    name="description" 
+    content="Portfolio Data Analyst : SQL, Python, Power BI et visualisation de données."
+>
+
+<style>
+:root {
+    --blue-light: #2C93CC;
+    --blue-dark: #0E3462;
+    --white: #FFFFFF;
+    --orange: #A65300;
+    --gray-light: #F5F7FA;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* SCROLL FLUIDE */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 10%;
+
+    z-index: 1000;
+
+    transition: 0.4s ease;
+
+    background: rgba(14, 52, 98, 0.55);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Navbar au scroll */
+
+.navbar.scrolled {
+    background: rgba(14, 52, 98, 0.95);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* LOGO */
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+/* BURGER */
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 2000;
+	background: none;
+    border: none;
+}
+
+.burger span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+/* Animation X */
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 0;
+        right: -100%;
+
+        width: 280px;
+        height: 100vh;
+
+        background: rgba(14, 52, 98, 0.95);
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 35px;
+
+        transition: 0.4s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gray-light);
+    color: var(--blue-dark);
+}
+
+/* ESPACE HEADER */
+
+header {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    color: white;
+    text-align: center;
+    padding-top: 120px;
+	padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* SECTION */
+section {
+    padding: 60px 10%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* ABOUT */
+#about p {
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* PROJECT */
+.project h3 {
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+/* CONTACT */
+#contact {
+    text-align: center;
+}
+
+.contact a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: var(--blue-light);
+    color: white;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+
+    background: black;
+    color: white;
+
+    padding: 10px;
+    z-index: 9999;
+
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+a:focus,
+button:focus {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Aéroworld - Data Analyst Portfolio</h1>
-    </header>
-    
-    <section id="about">
-        <h2>À propos de moi</h2>
-        <p>Je suis Data Analyst avec un background de développeur JAVA/J2EE</p>
-    </section>
-    
-    <section id="projects">
-        <h2>Projets</h2>
-        <div class="project">
-            <h3>Analyse des tendances du trafic aérien</h3>
-            <p>
-                Description de votre projet ici.
-            </p>
-        </div>
-        <div class="project">
-            <h3>Prévisions des vols et des horaires</h3>
-            <p>Description de votre projet ici. Utilisation de modèles de prévision pour estimer les horaires des vols.</p>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contactez-moi</h2>
-        <button>Contactez-moi via LinkedIn</button>
-    </section>
+
+<a href="#main-content" class="skip-link">
+    Aller au contenu principal
+</a>
+
+<nav class="navbar" id="navbar">
+
+    <div class="logo">Portfolio</div>
+
+    <!-- Bouton Burger -->
+	<button 
+		class="burger" 
+		id="burger"
+		aria-label="Ouvrir le menu"
+		aria-expanded="false"
+		aria-controls="navLinks"
+	>
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Menu -->
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="#veille">Veille</a></li>
+        <li><a href="#formation">Formation</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+<header>
+    <h1>Aéroworld - Portfolio Data Analyst</h1>
+    <p>SQL | Python | Data Visualisation</p>
+
+</header>
+
+<main id="main-content">
+	<section id="about">
+		<h2>À propos</h2>
+		<p>
+			Je suis Data Analyst avec un background de développeur, spécialisé en SQL, Python et data visualisation.
+			Je transforme des données complexes en insights actionnables pour aider à la prise de décision.
+		</p>
+	</section>
+
+	<section id="documents">
+		<h2>Documents</h2>
+		<div class="grid">
+			<div class="card"><a href="https://1drv.ms/i/c/4317284b7c0fe062/IQDjtCTMJOHmTpXySF6tHzixAZz7DR3Tpaa81nGgQ9U6gvQ?e=AzEn6c" target="_blank" rel="noopener noreferrer" aria-label="Lien vers la carte mentale">Carte mentale</a></div>
+			<div class="card"><a href="https://1drv.ms/b/c/4317284b7c0fe062/IQB9xuFManceSrGatFuZ6GpoAV3sa0ntV22UnA1Fmp2dFsI?e=38YBTz" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le besoin client">Besoin client</a></div>
+			<div class="card"><a href="https://1drv.ms/b/c/4317284b7c0fe062/IQBhzR4SPU7lS7klA_vdwMJIAScUvTvQfOXFyuvhthgPwlA?e=y0CSdk" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le cahier des charges">Cahier des charges</a></div>
+			<div class="card"><a href="https://1drv.ms/b/c/4317284b7c0fe062/IQBhfEbazhYaQLtSEIatXwYDAVqbxGGJ9a47POsI7Ti5chs?e=bMiEOo" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le planning">Planning</a></div>
+		</div>
+	</section>
+
+	<section id="veille">
+		<h2>Veille du metier de Data Analyst</h2>
+		<div class="grid">
+			<div class="card"><a href="https://1drv.ms/b/c/4317284b7c0fe062/IQCnniK6CvRQS4-s1vYbCu7XAf9rBRrnmUOpb5ahrmDlmOk?e=gyY0PS" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le tableau de bord de veille du métier de data analyst">Veille métier</a></div>
+		</div>
+	</section>
+
+	<section id="formation">
+		<h2>Formation de création d'une graphique avec Power BI </h2>
+		<div class="grid">
+			<div class="card"><a href="https://1drv.ms/w/c/4317284b7c0fe062/IQDmv69gFwFqQK-_aEuFC47oAZtCxOCT_NArbrjy0PVpX60?e=kkOWKT" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le planning">Guide utilisateur</a></div>
+			<div class="card"><a href="https://1drv.ms/v/c/4317284b7c0fe062/IQA31z1BHbtdTYm7X4QvfMiGAWnXhphSlrcdaB8hEql07k8?e=FIHCxw" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le planning">Vidéo</a></div>
+		</div>
+	</section>
+
+	<section id="projects">
+		<h2>Projets</h2>
+		<div class="grid">
+
+			<div class="card project">
+				<h3>Analyse SQL - Assurances</h3>
+				<p>Analyse du marché des assurances habitation via SQL.</p>
+				<a href="https://github.com/ndeye-d/Requetez-une-base-de-donnee-avec-SQL" target="_blank"  rel="noopener noreferrer" aria-label="Voir le projet Analyse SQL">Voir le projet</a>
+			</div>
+
+			<div class="card project">
+				<h3>Base de données immobilière</h3>
+				<p>Création et exploitation d’une base de données immobilière.</p>
+				<a href="https://github.com/ndeye-d/Base-de-donnees-immobiliere-avec-SQL" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Base de données immobilière">Voir le projet</a>
+			</div>
+
+			<div class="card project">
+				<h3>Dashboard Power BI</h3>
+				<p>Suivi de projets et visualisation des performances.</p>
+				<a href="https://github.com/ndeye-d/Tableau-de-bord-pour-visualiser-l-avancement-de-projets-avec-Power-BI" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Dashboard PowerBI">Voir le projet</a>
+			</div>
+
+			<div class="card project">
+				<h3>Story Tableau Software</h3>
+				<p>Aide à la décision d’investissement pour une ONG.</p>
+				<a href="https://github.com/ndeye-d/Etude-sur-l-eau-potable" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Story Tableau Software">Voir le projet</a>
+			</div>
+
+			<div class="card project">
+				<h3>Analyse de santé publique</h3>
+				<p>Étude sur la sous-nutrition mondiale.</p>
+				<a href="https://github.com/ndeye-d/Etude-de-sante-publique-avec-Python" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Analyse de santé publique">Voir le projet</a>
+			</div>
+			
+			<div class="card project">
+				<h3>Gestion d'une boutique</h3>
+				<p>Analyse des ventes d'un marchand de vin avec Python</p>
+				<a href="https://github.com/ndeye-d/Gestion-d-une-boutique-avec-Python" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Gestion d'une boutique">Voir le projet</a>
+			</div>
+			
+			<div class="card project">
+				<h3>Analyse des ventes d'une librairie avec Python</h3>
+				<p>Analyse des ventes d'une librairie en ligne.</p>
+				<a href="https://github.com/ndeye-d/Analyse-des-ventes-d-une-librairie-avec-Python" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Analyse des ventes d'une librairie">Voir le projet</a>
+			</div>
+			
+			<div class="card project">
+				<h3>Etude de marché en Python</h3>
+				<p>Etude de marché pour l'exportation de poulets BIO.</p>
+				<a href="https://github.com/ndeye-d/Etude-de-marche-avec-Python" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Etude de marché">Voir le projet</a>
+			</div>
+
+			<div class="card project">
+				<h3>Détection de faux billets</h3>
+				<p>Machine Learning pour classification.</p>
+				<a href="https://github.com/ndeye-d/Detecter-des-faux-billets-avec-Python" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Détection de faux billets">Voir le projet</a>
+			</div>
+			
+			<div class="card project">
+				<h3>Analyse des ventes d'un e-commerce</h3>
+				<p>Rapport mensuel et analyse des données clients avec Excel.</p>
+				<a href="https://github.com/ndeye-d/Analyse-des-ventes-avec-Excel" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Analyse des ventes d'un e-commerce">Voir le projet</a>
+			</div>
+
+		</div>
+	</section>
+
+	<section id="contact">
+		<h2>Contact</h2>
+		<div class="contact">
+			<a href="https://www.linkedin.com/in/ndeye-dieng-13a7a870/" target="_blank" rel="noopener noreferrer" aria-label="Voir le contact LinkedIN">LinkedIn</a>
+		</div>
+	</section>
+
+</main>
+<footer>
+    © 2026 Ndeye Dieng - Portfolio Data Analyst
+</footer>
+<script>
+
+	const burger = document.getElementById('burger');
+	const navLinks = document.getElementById('navLinks');
+	const navbar = document.getElementById('navbar');
+
+
+	// OUVERTURE MENU
+
+	burger.addEventListener('click', () => {
+
+		burger.classList.toggle('active');
+		navLinks.classList.toggle('active');
+
+		const expanded = burger.classList.contains('active');
+
+		burger.setAttribute('aria-expanded', expanded);
+
+	});
+
+
+	// FERMETURE AUTO APRÈS CLIC
+
+	document.querySelectorAll('.nav-links a').forEach(link => {
+
+		link.addEventListener('click', () => {
+
+			burger.classList.remove('active');
+			navLinks.classList.remove('active');
+
+		});
+
+	});
+
+
+	// NAVBAR AU SCROLL
+
+	window.addEventListener('scroll', () => {
+
+		if(window.scrollY > 50) {
+			navbar.classList.add('scrolled');
+		} else {
+			navbar.classList.remove('scrolled');
+		}
+
+	});
+	
+	//FERMETURE CLAVIER AVEC ESCAPE
+	document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') {
+        burger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+</script>
 </body>
 </html>
