@@ -1,4 +1,4 @@
-# 📊 Porfolio Data Analyst
+# 📊 Portfolio Data Analyst
 ## 👋 Présentation
 **Data Analyst** avec background développeur, spécialisé en **SQL**, **Python** et **Data Visualisation**, capable de transformer des données complexes en insights actionnables
 ## 🛠️ Compétences techniques
