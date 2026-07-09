@@ -19,5 +19,3 @@
 🔹 [Détecter des faux billets](https://github.com/ndeye-d/Detecter-des-faux-billets-avec-Python)  
 ### ➡️ Projets Excel
 🔹 [Analyse des ventes pour un e-commerce](https://github.com/ndeye-d/Analyse-des-ventes-avec-Excel)
-## 📫 Contact
-[Linkedin](https://www.linkedin.com/in/ndeye-dieng-13a7a870/)
